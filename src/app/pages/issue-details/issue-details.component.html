@@ -8,8 +8,9 @@
     <div class="issue-time-details">
       <span class="tag" *ngIf="issue.closed">Closed</span>
       <span class="tag opened" *ngIf="!issue.closed">Open</span>
-      <span><strong>{{issue.author.login}}</strong> opened this {{showDate(issue.createdAt)}}.</span>
-      <span style="margin-left: 5px">{{issue.comments.totalCount}} Comments</span>
+      <span>
+        <img [src]="issue.author.avatarUrl" alt="" class="show-in-mobile">
+        <strong>{{issue.author.login}}</strong> opened this {{showDate(issue.createdAt)}}. {{issue.comments.totalCount}} Comments</span>
     </div>
   </div>
   <div class="issue-details-and-comments">

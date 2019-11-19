@@ -110,10 +110,12 @@ svg {
 
 .feather-alert-circle {
   stroke: green;
+  min-width: 24px;
 }
 
 .feather-check-circle {
   stroke: darkred;
+  min-width: 24px;
 }
 
 pre {

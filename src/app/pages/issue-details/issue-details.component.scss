@@ -57,4 +57,25 @@
       }
     }
   }
+
+  .show-in-mobile {
+    display: none;
+    @media screen and (max-width: 768px) {
+      display: flex;
+      height: 15px;
+      width: 15px;
+      margin-right: 5px;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    width: 90%;
+    margin: 20px auto;
+    .issue-details-and-comments {
+      flex-direction: column;
+      .comments {
+        max-width: 100%;
+      }
+    }
+  }
 }

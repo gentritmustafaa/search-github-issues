@@ -23,5 +23,8 @@
       margin: 0 10px;
     }
   }
+  @media screen and (max-width: 768px) {
+    width: 90%;
+  }
 }
 

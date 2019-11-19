@@ -2,10 +2,18 @@
   display: flex;
   width: 100%;
   margin: 15px 0;
+
+  @media screen and (max-width: 768px) {
+    width: 90%;
+    margin: 20px auto;
+  }
 }
 
 .user-image {
   min-width: 60px;
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
 }
 
 .comment-details {
@@ -27,5 +35,10 @@
 
   pre {
     background-color: whitesmoke;
+  }
+
+  @media screen and (max-width: 768px) {
+    width: 100%;
+    margin-left: 0;
   }
 }
