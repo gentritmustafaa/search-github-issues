@@ -1,0 +1,27 @@
+.search-container {
+  width: 70%;
+  margin: 50px auto;
+
+  .total-issues {
+    margin: 10px 0;
+  }
+
+  .manipulate-pages {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .search-items {
+    display: flex;
+
+    .dropdown-wrapper {
+      width: 200px;
+    }
+
+    input {
+      margin: 0 10px;
+    }
+  }
+}
+

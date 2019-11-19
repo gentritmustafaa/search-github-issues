@@ -1,0 +1,47 @@
+.interaction-container {
+  margin: 15px 0 15px 15px;
+  padding: 5px 0;
+
+  > span {
+    display: flex;
+    padding: 5px;
+    margin-bottom: 8px;
+    font-size: 12px;
+    color: #586069;
+    text-transform: capitalize;
+  }
+
+  > div {
+    display: block;
+    font-size: 12px;
+    padding: 10px 5px;
+
+    .images {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    span {
+      width: 100%;
+      padding: 5px;
+      background-color: darkmagenta;
+      font-size: 12px;
+      color: white;
+      display: flex;
+      border-radius: 5px;
+      margin: 5px 0;
+    }
+
+    img {
+      width: 30px;
+      height: 30px;
+      margin: 5px;
+      :first-child {
+        margin-left: 0;
+      }
+    }
+  }
+
+  border-bottom: 1px solid #dadada;
+}

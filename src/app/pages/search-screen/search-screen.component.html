@@ -1,0 +1,37 @@
+<div class="search-container">
+  <div class="search-items">
+    <div class="dropdown-wrapper">
+      <app-dropdown [items]="searchItems"
+                    [label]="'text'"
+                    [value]="'value'"
+                    (emitModelChange)="searchIssues($event)"
+                    [(model)]="chosenSearchCriteria"></app-dropdown>
+    </div>
+    <input type="text" [(ngModel)]="searchText" placeholder="Search github issues">
+    <button class="primary" (click)="searchIssues(chosenSearchCriteria, null)">Search</button>
+  </div>
+
+  <ng-container *ngIf="issues | async; else loading">
+    <div class="total-issues">
+      Number of Issues: {{totalIssues}}
+    </div>
+    <div *ngFor="let issue of issues | async">
+      <app-issue-card (click)="getSpecificIssue(issue)" [issue]="issue"></app-issue-card>
+    </div>
+
+    <div class="manipulate-pages">
+      <button class="primary" [disabled]="pageInfo && !pageInfo.hasPreviousPage"
+              (click)="searchIssues(chosenSearchCriteria, 'previous')">Previous
+      </button>
+      <button class="primary" [disabled]="pageInfo && !pageInfo.hasNextPage"
+              (click)="searchIssues(chosenSearchCriteria, 'next')">Next
+      </button>
+    </div>
+  </ng-container>
+  <ng-template #loading>
+    <div class="loader loading-center">
+      <i-feather name="loader"></i-feather>
+    </div>
+  </ng-template>
+
+</div>

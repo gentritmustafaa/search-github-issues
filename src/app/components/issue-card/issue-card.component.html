@@ -1,0 +1,21 @@
+<div class="issue-card">
+  <div class="issue-card__up">
+    <div>
+      <i-feather *ngIf="!issue.node.closed" name="alert-circle"></i-feather>
+      <i-feather *ngIf="issue.node.closed" name="check-circle"></i-feather>
+      <p>{{issue.node.title}}
+        <ng-container *ngIf="issue.node.labels.edges">
+          <span class="tag" *ngFor="let tag of issue.node.labels.edges">{{tag.node.name}}</span>
+        </ng-container>
+      </p>
+    </div>
+    <div>
+      <i-feather name="message-square" style="margin-right: 5px"></i-feather>
+      {{issue.node.comments.totalCount}}
+    </div>
+  </div>
+  <div class="issue-card__down">
+    <img [src]="issue.node.author.avatarUrl" alt="">
+    <span>#{{issue.node.number}} opened {{showDate(issue.node.createdAt)}} by <strong>{{issue.node.author.login}}</strong></span>
+  </div>
+</div>

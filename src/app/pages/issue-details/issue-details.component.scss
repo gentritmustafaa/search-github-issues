@@ -1,0 +1,60 @@
+.issue-container {
+  width: 70%;
+  height: 100%;
+  margin: 50px auto;
+
+  .issue-details-and-comments {
+    display: flex;
+    max-width: calc(100% - 200px);
+
+    .comments {
+      max-width: 100%;
+    }
+
+    .labels {
+      min-width: 190px;
+    }
+  }
+
+  button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    padding: 5px 10px 5px 5px;
+  }
+
+  .issue-header {
+    border-bottom: 1px solid #dadada;
+    margin-bottom: 15px;
+
+    > p {
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 20px;
+
+      .issue-number {
+        color: lighten(black, 50%)
+      }
+    }
+
+    .issue-time-details {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+
+      .tag {
+        padding: 3px 7px;
+        border-radius: 3px;
+        background: #cb2431;
+        color: white;
+        margin-right: 10px;
+        display: inline-block;
+
+        &.opened {
+          background-color: green;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,31 @@
+<div class="issue-container" *ngIf="issue ; else loading">
+  <button (click)="goBack()" class="primary">
+    <i-feather name="chevron-left"></i-feather>
+    Go back to list
+  </button>
+  <div class="issue-header">
+    <p>{{issue.title}} <span class="issue-number">#{{issue.number}}</span></p>
+    <div class="issue-time-details">
+      <span class="tag" *ngIf="issue.closed">Closed</span>
+      <span class="tag opened" *ngIf="!issue.closed">Open</span>
+      <span><strong>{{issue.author.login}}</strong> opened this {{showDate(issue.createdAt)}}.</span>
+      <span style="margin-left: 5px">{{issue.comments.totalCount}} Comments</span>
+    </div>
+  </div>
+  <div class="issue-details-and-comments">
+    <div class="comments">
+      <app-comment [comment]="issueDetails"></app-comment>
+      <app-comment *ngFor="let comment of issue.comments.edges" [comment]="comment"></app-comment>
+    </div>
+    <div class="labels">
+      <app-issue-interactions [showForm]="'images'" [title]="'assignees'" [item]="issue.assignes?.edges"></app-issue-interactions>
+      <app-issue-interactions [showForm]="'tags'" [title]="'labels'" [item]="issue.labels?.edges"></app-issue-interactions>
+      <app-issue-interactions [showForm]="'images'" [title]="'participants'" [item]="issue.participants?.edges"></app-issue-interactions>
+    </div>
+  </div>
+</div>
+<ng-template #loading>
+  <div class="loader loading-whole">
+    <i-feather name="loader"></i-feather>
+  </div>
+</ng-template>

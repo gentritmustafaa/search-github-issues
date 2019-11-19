@@ -1,0 +1,9 @@
+<div class="dropdown-container">
+  <div class="dropdown-activator" [ngClass]="{'active': showDropdown, 'disabled': disabled}" (click)="!disabled && (showDropdown = !showDropdown)">
+    <span *ngIf="model">{{getValue(model)}}</span>
+    <span *ngIf="!model" class="placeholder">Choose Filter</span>
+  </div>
+  <div class="dropdown-items" *ngIf="showDropdown">
+    <span class="dropdown-item" (click)="modelChanged(item)" *ngFor="let item of searchModelChanged()">{{label ? item[label] : item}}</span>
+  </div>
+</div>

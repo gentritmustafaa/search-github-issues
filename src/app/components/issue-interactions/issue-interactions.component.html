@@ -1,0 +1,14 @@
+<div class="interaction-container">
+  <span>{{title}}</span>
+  <div [ngClass]="showForm" *ngIf="item?.length > 0">
+    <ng-container *ngIf="showForm === 'tags'">
+      <span *ngFor="let tag of item">{{tag.node.name}}</span>
+    </ng-container>
+    <ng-container *ngIf="showForm === 'images'">
+      <img *ngFor="let img of item" [src]="img.node.avatarUrl" alt="img">
+    </ng-container>
+  </div>
+  <div *ngIf="!item || item.length === 0">
+    No {{title}}
+  </div>
+</div>

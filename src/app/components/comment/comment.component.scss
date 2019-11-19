@@ -1,0 +1,31 @@
+.comment-container {
+  display: flex;
+  width: 100%;
+  margin: 15px 0;
+}
+
+.user-image {
+  min-width: 60px;
+}
+
+.comment-details {
+  border: 1px solid #dadada;
+  border-radius: 3px;
+  width: calc(100% - 80px);
+  margin-left: 20px;
+
+  .comment-body {
+    padding: 0 15px;
+    margin: 0;
+  }
+
+  .comment-header {
+    border-bottom: 1px solid #dadada;
+    background-color: whitesmoke;
+    padding: 7px;
+  }
+
+  pre {
+    background-color: whitesmoke;
+  }
+}

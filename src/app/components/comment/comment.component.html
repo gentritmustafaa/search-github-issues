@@ -1,0 +1,12 @@
+
+<div class="comment-container">
+  <div class="user-image">
+    <img [src]="comment.node.author.avatarUrl" height="60px" width="60px" alt="">
+  </div>
+  <div class="comment-details">
+    <div class="comment-header">
+      <strong>{{comment.node.author.login}}</strong> commented on this issue {{showDate(comment.node.createdAt)}}.
+    </div>
+    <p class="comment-body" [innerHTML]="comment.node.bodyHTML"></p>
+  </div>
+</div>
