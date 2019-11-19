@@ -4,7 +4,7 @@
       <app-dropdown [items]="searchItems"
                     [label]="'text'"
                     [value]="'value'"
-                    (emitModelChange)="searchIssues($event)"
+                    (emitModelChange)="searchIssues($event, null)"
                     [(model)]="chosenSearchCriteria"></app-dropdown>
     </div>
     <input type="text" [(ngModel)]="searchText" placeholder="Search github issues">
