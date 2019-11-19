@@ -5,10 +5,10 @@
 
   .issue-details-and-comments {
     display: flex;
-    max-width: calc(100% - 200px);
+    max-width: 100%;
 
     .comments {
-      max-width: 100%;
+      max-width: calc(100% - 190px);
     }
 
     .labels {
