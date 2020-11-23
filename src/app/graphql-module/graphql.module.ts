@@ -16,10 +16,10 @@ export function provideApollo(httpLink: HttpLink) {
     }
   }));
 
-  const token = environment.token;
+  const token = localStorage.getItem('token') || null;
   const auth = setContext((operation, context) => ({
     headers: {
-      Authorization: `Bearer ${token}`
+      Authorization: `Bearer ${JSON.parse(token)}`
     },
   }));
 

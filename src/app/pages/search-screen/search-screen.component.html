@@ -1,4 +1,12 @@
-<div class="search-container">
+<div *ngIf="!tokenSet" class="search-container">
+  <span style="display: flex; margin: 20px">This is a small copy of github which lets you to search for Angular Github Repo issues using GraphQL and Github's API. In order to use this you have to generate a Personal Access Token from github and paste it here.
+    This will be saved on local storage of this app, and you can delete it whenever you want.</span>
+  <div class="search-items">
+    <input type="text" [(ngModel)]="tokenModel" placeholder="Type personal access token here">
+    <button class="primary" (click)="saveTokenOnLS()">Save in local storage</button>
+  </div>
+</div>
+<div class="search-container" *ngIf="tokenSet">
   <div class="search-items">
     <div class="dropdown-wrapper">
       <app-dropdown [items]="searchItems"

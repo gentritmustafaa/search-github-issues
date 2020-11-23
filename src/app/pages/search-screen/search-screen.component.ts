@@ -18,6 +18,8 @@ export class SearchScreenComponent implements OnInit {
   fetchedIssuesLength: number;
   issues: Observable<any>;
   searchText = '';
+  tokenSet = false;
+  tokenModel = null;
 
   searchItems = [{
     text: 'Open Issues',
@@ -39,7 +41,16 @@ export class SearchScreenComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.searchIssues('all', null);
+    const token = JSON.parse(localStorage.getItem('token'));
+    if (token) {
+      this.tokenSet = true;
+      this.searchIssues('all', null);
+    }
+  }
+
+  saveTokenOnLS() {
+    localStorage.setItem('token', JSON.stringify(this.tokenModel));
+    location.reload();
   }
 
   searchIssues(event, step) {
@@ -101,15 +112,15 @@ export class SearchScreenComponent implements OnInit {
         previousCursor,
       }
     })
-    .valueChanges
-    .pipe(
-      map(res => {
-        this.fetchedIssuesLength = res.data.search.edges.length;
-        this.totalIssues = res.data.search.issueCount;
-        this.pageInfo = res.data.search.pageInfo;
-        return res.data.search.edges;
-      })
-    );
+      .valueChanges
+      .pipe(
+        map(res => {
+          this.fetchedIssuesLength = res.data.search.edges.length;
+          this.totalIssues = res.data.search.issueCount;
+          this.pageInfo = res.data.search.pageInfo;
+          return res.data.search.edges;
+        })
+      );
   }
 
   getSpecificIssue(issue) {
